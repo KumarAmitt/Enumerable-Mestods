@@ -26,7 +26,7 @@ module Enumerable
   end
 
   # 2. my_select Method-----------------------------
-  
+
   def my_select
     return to_enum(:my_select) unless block_given?
 
@@ -36,6 +36,24 @@ module Enumerable
 
     selects
   end
+
+  # 3. my_all? Method--------------------------------
+
+  def my_all?(param = nil)
+    my_each do |item|
+      case
+      when param
+        return false unless param === item
+      when block_given?
+        return false unless yield(item)
+      else
+        return false unless item
+      end
+    end
+
+    true
+  end
+
 
 
 
