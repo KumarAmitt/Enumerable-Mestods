@@ -91,4 +91,31 @@ print a.my_map(my_proc) { |num| num < 10 }
 
 
 
+# # 9 *** my_inject test
+
+#Sum some numbers
+# puts (5..10).my_inject(:+)                             #=> 45
+# # Same using a block and inject
+# puts (5..10).my_inject { |sum, n| sum + n }            #=> 45
+# # Multiply some numbers
+# puts (5..10).my_inject(1, :*)                          #=> 151200
+# # Same using a block
+# puts (5..10).my_inject(1) { |product, n| product * n } #=> 151200
+#
+# puts range.my_inject(:*)
+# puts range.my_inject(2,:*)
+#
+# search = proc { |memo, word| memo.length > word.length ? memo : word }
+# words = ["dog", "doooooor", "rod", "blade"]
+#
+#
+# puts words.my_inject(&search)
+
+
+
+# # 10 *** multiply_els test
+
+puts multiply_els([2,4,5])
+
+
 

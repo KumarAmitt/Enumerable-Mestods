@@ -1,5 +1,4 @@
 module Enumerable
-
   # 1. my_each Method-----------------------------
 
   def my_each
@@ -11,7 +10,6 @@ module Enumerable
 
     self
   end
-
 
   # 2. my_each_with_index Method-----------------------------
 
@@ -25,7 +23,7 @@ module Enumerable
     self
   end
 
-  # 2. my_select Method-----------------------------
+  # 3. my_select Method-----------------------------
 
   def my_select
     return to_enum(:my_select) unless block_given?
@@ -37,7 +35,7 @@ module Enumerable
     selects
   end
 
-  # 3. my_all? Method--------------------------------
+  # 4. my_all? Method--------------------------------
 
   def my_all?(param = nil)
     my_each do |item|
@@ -54,7 +52,7 @@ module Enumerable
     true
   end
 
-  # 4. my_any? Method--------------------------------
+  # 5. my_any? Method--------------------------------
 
   def my_any?(param = nil)
     my_each do |item|
@@ -70,13 +68,13 @@ module Enumerable
     false
   end
 
-  # 4. my_none? Method--------------------------------
+  # 6. my_none? Method--------------------------------
 
   def my_none?(param = nil, &prc)
     !my_any?(param, &prc)
   end
 
-  # 5. my_count Method--------------------------------
+  # 7. my_count Method--------------------------------
 
   def my_count(param = nil)
     count = 0
@@ -93,7 +91,7 @@ module Enumerable
     count
   end
 
-  # 6. my_map Method--------------------------------
+  # 8. my_map Method--------------------------------
 
   def my_map(proc = nil)
     return to_enum(:my_map) unless block_given? || !proc.nil?
@@ -103,5 +101,30 @@ module Enumerable
     arr
   end
 
+
+  # 9. my_inject Method--------------------------------
+  # rubocop: disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
+
+  def my_inject(param = nil, sym = nil)
+    if (param && sym.nil?) && (param.is_a?(Symbol) || param.is_a?(String))
+      sym = param
+      param = nil
+    end
+
+    to_a.my_each do |item|
+      param = if !block_given? && sym
+                param ? param.send(sym, item) : item
+              else
+                param ? yield(param, item) : item
+              end
+    end
+
+    param
+  end
 end
 
+# 10. multiply_els Method--------------------------------
+
+def multiply_els(arr)
+  arr.my_inject(1, '*')
+end
