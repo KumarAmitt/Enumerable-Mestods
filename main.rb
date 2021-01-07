@@ -46,14 +46,28 @@ search = proc { |memo, word| memo.length > word.length ? memo : word }
 # 5 *** my_any? test-----------------------------------
 
 
-puts %w[ant bear cat].my_any? { |word| word.length >= 3 } #=> true
-puts %w[ant bear cat].my_any? { |word| word.length >= 4 } #=> true
-puts %w[ant bear cat].my_any?(/d/)                        #=> false
-puts [nil, true, 99].my_any?(Integer)                     #=> true
-puts [nil, true, 99].my_any?                              #=> true
-puts [].my_any?                                           #=> false
-puts words.my_any?('cat')                                 #=> false
-puts [  nil, false].my_any?                               #=> false
+# puts %w[ant bear cat].my_any? { |word| word.length >= 3 } #=> true
+# puts %w[ant bear cat].my_any? { |word| word.length >= 4 } #=> true
+# puts %w[ant bear cat].my_any?(/d/)                        #=> false
+# puts [nil, true, 99].my_any?(Integer)                     #=> true
+# puts [nil, true, 99].my_any?                              #=> true
+# puts [].my_any?                                           #=> false
+# puts words.my_any?('cat')                                 #=> false
+# puts [  nil, false].my_any?                               #=> false
+
+# # 6 *** my_none? test
+
+# puts %w{ant bear cat}.my_none? { |word| word.length == 5 } #=> true
+# puts %w{ant bear cat}.my_none? { |word| word.length >= 4 } #=> false
+# puts %w{ant bear cat}.my_none?(/d/)                        #=> true
+# puts [1, 3.14, 42].my_none?(Float)                         #=> false
+# puts [].my_none?                                           #=> true
+# puts [nil].my_none?                                        #=> true
+# puts [nil, false].my_none?                                 #=> true
+# puts [nil, false, true].my_none?                           #=> false
+# puts words.my_none?(5)                                     #=> true
+# puts [3, 4, 7, 11].my_none?(4)                             #=> false
+
 
 
 

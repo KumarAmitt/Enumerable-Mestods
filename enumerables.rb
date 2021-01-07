@@ -70,6 +70,13 @@ module Enumerable
     false
   end
 
+  # 4. my_none? Method--------------------------------
+
+  def my_none?(param = nil, &prc)
+    !my_any?(param, &prc)
+  end
+
+
 
 
 
