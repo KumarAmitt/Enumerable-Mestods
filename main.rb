@@ -21,9 +21,15 @@ search = proc { |memo, word| memo.length > word.length ? memo : word }
 
 #  2 ***my_each_with_index
 
- ["any","k","a","b","c","d","e"].my_each_with_index { |item,index| puts "#{item} : #{index}"}
- a.my_each_with_index {|item,index| puts "#{item} & #{index}"}
- puts a.my_each_with_index.is_a?(Enumerator)
- block = proc { |num| num < 4 }
- print a.my_each_with_index(&block)
+#  ["any","k","a","b","c","d","e"].my_each_with_index { |item,index| puts "#{item} : #{index}"}
+#  a.my_each_with_index {|item,index| puts "#{item} & #{index}"}
+#  puts a.my_each_with_index.is_a?(Enumerator)
+#  block = proc { |num| num < 4 }
+#  print a.my_each_with_index(&block)
+
+# 3 *** my_select test---------------------------
+
+# print(a.my_select(&:even?))
+print a.my_select.is_a?(Enumerator)
+
 
