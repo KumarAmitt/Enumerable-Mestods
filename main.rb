@@ -70,6 +70,14 @@ search = proc { |memo, word| memo.length > word.length ? memo : word }
 
 
 
+# # 7 *** my_count? test
+
+ary = [1, 2, 4, 2]
+puts ary.my_count               #=> 4
+puts ary.my_count(2)            #=> 2
+puts ary.my_count{ |x| x%2==0 } #=> 3
+puts range.my_count             #=> 46
+
 
 
 

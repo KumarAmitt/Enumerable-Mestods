@@ -76,7 +76,22 @@ module Enumerable
     !my_any?(param, &prc)
   end
 
+  # 5. my_count Method--------------------------------
 
+  def my_count(param = nil)
+    count = 0
+    my_each do |item|
+      if block_given?
+        count += 1 if yield(item)
+      elsif param
+        count += 1 if item == param
+      else
+        count = size
+      end
+    end
+
+    count
+  end
 
 
 
