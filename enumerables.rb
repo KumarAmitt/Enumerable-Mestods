@@ -99,14 +99,9 @@ module Enumerable
     return to_enum(:my_map) unless block_given? || !proc.nil?
 
     arr = []
-    to_a.my_each do |item|
-      if proc.nil?
-        arr << yield(item)
-      else
-        arr << proc.call(item)
-      end
-    end
+    to_a.my_each { |item| arr << (proc.nil? ? yield(item) : proc.call(item)) }
     arr
   end
 
 end
+
