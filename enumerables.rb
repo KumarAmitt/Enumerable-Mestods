@@ -93,6 +93,20 @@ module Enumerable
     count
   end
 
+  # 6. my_map Method--------------------------------
 
+  def my_map(proc = nil)
+    return to_enum(:my_map) unless block_given? || !proc.nil?
+
+    arr = []
+    to_a.my_each do |item|
+      if proc.nil?
+        arr << yield(item)
+      else
+        arr << proc.call(item)
+      end
+    end
+    arr
+  end
 
 end
