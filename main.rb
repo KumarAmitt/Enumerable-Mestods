@@ -10,12 +10,20 @@ search = proc { |memo, word| memo.length > word.length ? memo : word }
 
 # 1. my_each test-----------------------------
 
-%w[A B1 c e dad ieee].my_each { |item| puts item.length }
-a.my_each {|item| print item}
-puts a.my_each.is_a?(Enumerator)
-block = proc { |num| num < 4 }
-print a.my_each(&block)
-print range.my_each(&block)
+# %w[A B1 c e dad ieee].my_each { |item| puts item.length }
+# a.my_each {|item| print item}
+# puts a.my_each.is_a?(Enumerator)
+# block = proc { |num| num < 4 }
+# print a.my_each(&block)
+# print range.my_each(&block)
 
 
+
+#  2 ***my_each_with_index
+
+ ["any","k","a","b","c","d","e"].my_each_with_index { |item,index| puts "#{item} : #{index}"}
+ a.my_each_with_index {|item,index| puts "#{item} & #{index}"}
+ puts a.my_each_with_index.is_a?(Enumerator)
+ block = proc { |num| num < 4 }
+ print a.my_each_with_index(&block)
 
