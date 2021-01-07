@@ -54,6 +54,22 @@ module Enumerable
     true
   end
 
+  # 4. my_any? Method--------------------------------
+
+  def my_any?(param = nil)
+    my_each do |item|
+      case
+      when param
+        return true if param === item
+      when block_given?
+        return true if yield(item)
+      else
+        return true if item
+      end
+    end
+    false
+  end
+
 
 
 

@@ -34,14 +34,28 @@ search = proc { |memo, word| memo.length > word.length ? memo : word }
 
 # 4 *** my_all? test-----------------------------
 
-puts %w[ant bear cat].my_all? { |word| word.length >= 3 }  #=>true
-puts %w[ant bear cat].my_all? { |word| word.length >= 4 }  #=>false
-puts %w[ant bear cat].my_all?(/t/)                    #=>false
-puts [1, 2i, 3.14].my_all?(Numeric)                        #=>true
-puts [nil, true, 99].my_all?                               #=>false
-puts [].my_all?                                            #=>true
-puts a.my_all?(3)                                    #=>false
-puts [1, 'hi', true, []].my_all?                           #=>true
+# puts %w[ant bear cat].my_all? { |word| word.length >= 3 }  #=>true
+# puts %w[ant bear cat].my_all? { |word| word.length >= 4 }  #=>false
+# puts %w[ant bear cat].my_all?(/t/)                    #=>false
+# puts [1, 2i, 3.14].my_all?(Numeric)                        #=>true
+# puts [nil, true, 99].my_all?                               #=>false
+# puts [].my_all?                                            #=>true
+# puts a.my_all?(3)                                    #=>false
+# puts [1, 'hi', true, []].my_all?                           #=>true
+
+# 5 *** my_any? test-----------------------------------
+
+
+puts %w[ant bear cat].my_any? { |word| word.length >= 3 } #=> true
+puts %w[ant bear cat].my_any? { |word| word.length >= 4 } #=> true
+puts %w[ant bear cat].my_any?(/d/)                        #=> false
+puts [nil, true, 99].my_any?(Integer)                     #=> true
+puts [nil, true, 99].my_any?                              #=> true
+puts [].my_any?                                           #=> false
+puts words.my_any?('cat')                                 #=> false
+puts [  nil, false].my_any?                               #=> false
+
+
 
 
 
