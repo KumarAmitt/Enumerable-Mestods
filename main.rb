@@ -86,7 +86,7 @@ puts '8. my_map test-----------------------------'
 
 print((1..4).my_map { |i| i * i }) #=> [1, 4, 9, 16]
 random_proc = proc { |num| num * 2 }
-print (1..4).my_map(random_proc) #=> [2, 4, 6, 8]
+print((1..4).my_map(random_proc)) #=> [2, 4, 6, 8]
 puts a.my_map.is_a?(Enumerator) #=> true
 my_proc = proc { |num| num > 10 }
 print a.my_map(my_proc) { |num| num < 10 }
@@ -95,11 +95,11 @@ puts "\n\n"
 puts '9. my_inject test-----------------------------'
 
 # Sum some numbers
-puts (5..10).my_inject(:+) #=> 45
+puts((5..10).my_inject(:+)) #=> 45
 # Same using a block and inject
 puts((5..10).my_inject { |sum, n| sum + n }) #=> 45
 # Multiply some numbers
-puts (5..10).my_inject(1, :*) #=> 151200
+puts((5..10).my_inject(1, :*)) #=> 151200
 # Same using a block
 puts((5..10).my_inject(1) { |product, n| product * n }) #=> 151200
 
