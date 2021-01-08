@@ -1,4 +1,4 @@
-# Enumerable-Mestods
+# Enumerable-Methods
 
 This is the first project that challenges us into recreating our own enumerable methods using Ruby this is the second Ruby section of the *Microverse Remote Software Development Curriculum*.
 
@@ -7,15 +7,34 @@ Below are a list of methods we had to recreate.
 ### Enumerable Methods List:
 
 - my_each
+  ![screenshot](./images/1.png)
+  
 - my_each_with_index
+  ![screenshot](./images/2.png)
+  
 - my_select
+  ![screenshot](./images/3.png)
+  
 - my_all?
+  ![screenshot](./images/4.png)
+  
 - my_any?
+  ![screenshot](./images/5.png)
+  
 - my_none?
+  ![screenshot](./images/6.png)
+  
 - my_count
+  ![screenshot](./images/7.png)
+  
 - my_map
+  ![screenshot](./images/8.png)
+  
 - my_inject
+  ![screenshot](./images/9.png)
+  
 - multiply_els
+  ![screenshot](./images/10.png)
 
 ## Built With
 
