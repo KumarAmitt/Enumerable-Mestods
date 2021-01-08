@@ -41,7 +41,7 @@ module Enumerable
     my_each do |item|
       case
       when param
-        return false unless param === item
+        return false unless param === item # rubocop:disable Style/CaseEquality
       when block_given?
         return false unless yield(item)
       else
@@ -58,7 +58,7 @@ module Enumerable
     my_each do |item|
       case
       when param
-        return true if param === item
+        return true if param === item # rubocop:disable Style/CaseEquality
       when block_given?
         return true if yield(item)
       else
@@ -101,7 +101,6 @@ module Enumerable
     arr
   end
 
-
   # 9. my_inject Method--------------------------------
   # rubocop: disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 
@@ -121,6 +120,7 @@ module Enumerable
 
     param
   end
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 end
 
 # 10. multiply_els Method--------------------------------
