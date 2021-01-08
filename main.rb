@@ -1,4 +1,4 @@
-require_relative 'enumerables'
+require_relative 'enumerable'
 
 a = [5, 3, 3, 2, 4, 8, 3, 6, 5, 0, 1, 5, 1, 4, 0, 1, 0, 4, 0, 8, 4, 8, 6, 7, 8, 4, 0, 0, 6, 1, 0, 8, 4, 0, 6, 2, 4, 6,
      0, 5, 3, 0, 2, 3, 4, 8, 7, 5, 6, 8, 8, 3, 0, 8, 3, 1, 8, 4, 4, 2, 6, 6, 2, 5, 6, 4, 4, 2, 3, 2, 7, 7, 1, 8, 2, 5,
@@ -27,6 +27,24 @@ a.my_each_with_index { |item, index| puts "#{item} & #{index}" }
 puts a.my_each_with_index.is_a?(Enumerator)
 block = proc { |num| num < 4 }
 print a.my_each_with_index(&block)
+
+concat1 = ''
+[1, 2, 3, 4].my_each_with_index(&proc { |n, i| concat1 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+concat2 = ''
+[1, 2, 3, 4].my_each_with_index(&proc { |n, i| concat2 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+puts concat1 == concat2
+
+concat1 = ''
+(1..4).my_each_with_index(&proc { |n, i| concat1 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+concat2 = ''
+(1..4).my_each_with_index(&proc { |n, i| concat2 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+puts concat1 == concat2
+
+concat1 = ''
+{ a: 1, b: 2, c: 3, d: 4 }.my_each_with_index(&proc { |n, i| concat1 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+concat2 = ''
+{ a: 1, b: 2, c: 3, d: 4 }.my_each_with_index(&proc { |n, i| concat2 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+puts concat1 == concat2
 
 puts "\n\n"
 puts '3. my_select test-----------------------------'
@@ -105,7 +123,7 @@ puts((5..10).my_inject(1) { |product, n| product * n }) #=> 151200
 
 puts range.my_inject(:*)
 puts range.my_inject(2, :*)
-words = %w[dog doooooor rod blade]
+words = %w[dog donor rod blade]
 
 puts words.my_inject(&search)
 
