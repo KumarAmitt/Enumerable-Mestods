@@ -11,7 +11,7 @@ module Enumerable
           end
 
     arr.length.times do |i|
-      yield to_a[i]
+      yield arr[i]
     end
 
     self
@@ -29,7 +29,7 @@ module Enumerable
           end
 
     arr.length.times do |i|
-      yield to_a[i], [i]
+      yield arr[i], [i]
     end
 
     self
