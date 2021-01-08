@@ -29,7 +29,7 @@ module Enumerable
           end
 
     arr.length.times do |i|
-      yield arr[i], [i]
+      yield arr[i], i
     end
 
     self
