@@ -29,21 +29,21 @@ block = proc { |num| num < 4 }
 print a.my_each_with_index(&block)
 
 concat1 = ''
-[1, 2, 3, 4].my_each_with_index(&proc { |n, i| concat1 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+[1, 2, 3, 4].my_each_with_index(&proc { |n, i| concat1 += "n: #{n}, i: #{i}+++" })
 concat2 = ''
-[1, 2, 3, 4].my_each_with_index(&proc { |n, i| concat2 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+[1, 2, 3, 4].my_each_with_index(&proc { |n, i| concat2 += "n: #{n}, i: #{i}+++" })
 puts concat1 == concat2
 
 concat1 = ''
-(1..4).my_each_with_index(&proc { |n, i| concat1 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+(1..4).my_each_with_index(&proc { |n, i| concat1 += "n: #{n}, i: #{i}+++" })
 concat2 = ''
-(1..4).my_each_with_index(&proc { |n, i| concat2 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+(1..4).my_each_with_index(&proc { |n, i| concat2 += "n: #{n}, i: #{i}+++" })
 puts concat1 == concat2
 
 concat1 = ''
-{ a: 1, b: 2, c: 3, d: 4 }.my_each_with_index(&proc { |n, i| concat1 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+{ a: 1, b: 2, c: 3, d: 4 }.my_each_with_index(&proc { |n, i| concat1 += "n: #{n}, i: #{i}+++" })
 concat2 = ''
-{ a: 1, b: 2, c: 3, d: 4 }.my_each_with_index(&proc { |n, i| concat2 += "n: #{n.to_s}, i: #{i.to_s}+++" })
+{ a: 1, b: 2, c: 3, d: 4 }.my_each_with_index(&proc { |n, i| concat2 += "n: #{n}, i: #{i}+++" })
 puts concat1 == concat2
 
 puts "\n\n"
