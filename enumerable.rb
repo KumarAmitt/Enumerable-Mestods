@@ -4,11 +4,7 @@ module Enumerable
   def my_each
     return to_enum(:my_each) unless block_given?
 
-    arr = if instance_of?(Range)
-            to_a
-          else
-            instance_of?(Hash) ? flatten : self
-          end
+    arr = *self
 
     arr.length.times do |i|
       yield arr[i]
@@ -22,11 +18,7 @@ module Enumerable
   def my_each_with_index
     return to_enum(:my_each) unless block_given?
 
-    arr = if instance_of?(Range)
-            to_a
-          else
-            instance_of?(Hash) ? flatten : self
-          end
+    arr = *self
 
     arr.length.times do |i|
       yield arr[i], i
